@@ -12,7 +12,7 @@ import React, {useEffect} from 'react';
                 (member) => {
                     return(
                         <div className="item" key={member.key}>
-                            <li>{member.name}</li> 
+                            <input value={member.name}></input>                            
                             <button value={member.key} onClick={() => deleteOnClick(member.key)}>clear</button>
                         </div>
                     )
