@@ -5,9 +5,10 @@ import {ToDoCreate} from './toDoCreate'
 function App() {
   const [list, setList] = useState(["naber","canım"])
 
-  const onHandleClick= ({target})=>{
+  const onHandleClick = ({target})=>{
     setList((prev)=>{
-      return[prev,target.value]
+      console.log(target)
+      return[...prev,target.value]
     })
   }
   return (
