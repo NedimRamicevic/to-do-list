@@ -1,16 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-export function List(list){
-
+    export function List(list){
     
 
     return(
-        <ul>
-            {list.map((member, index) => (
-                <li key={index}>{member}</li>
-            )
-
+        <div>
+            <ul>
+            {list.list.map(
+                (member, index) => {
+                    return(
+                        <li key={index}>{member}</li>
+                    )
+                }
             )}
         </ul>
+        </div>
     )
 }
