@@ -14,11 +14,13 @@ function App() {
     }
 ])
 
-  const onHandleClick = (target)=>{
+  const onHandleClick = ({target})=>{
     setList((prev)=>{
-      console.log(target)
-      return[...prev,target]
+      return[...prev,{
+        key:target.key,
+        name: target.value}]
     })
+    console.log(target)
   }
   const deleteOnClick = ({target}) =>{
     setList((prev) =>(

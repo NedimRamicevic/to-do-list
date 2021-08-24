@@ -13,17 +13,17 @@ export function ToDoCreate({onHandleClick}){
         })
         setİtem(()=>(
             {
-                key:target.value + (new Date()).getMilliseconds().toString(),
+                key:(target.value + (new Date()).getMilliseconds().toString()).toString(),
                 name:target.value,}
-        ))
-        console.log(item)        
+        ))   
+
     }
    
     return(
         <div>
             <input onChange={changing}></input>
         {logic? 
-        (<button value = {item.name} key={item.key} onClick={onHandleClick} >Create</button>):null}
+        (<button value = {item} onClick={onHandleClick} >Create</button>):null}
         </div>
     )
 }
