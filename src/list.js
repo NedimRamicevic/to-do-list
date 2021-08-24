@@ -1,15 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-    export function List(list){
-    
+    export function List({list,deleteOnClick}){
+        useEffect(() => {
+            console.log(list)
+        }, [])
 
     return(
-        <div>
+        <div className="list">
             <ul>
-            {list.list.map(
-                (member, index) => {
+            {list.map(
+                (member) => {
                     return(
-                        <li key={index}>{member}</li>
+                        <div className="item" key={member.key}>
+                            <li>{member.name}</li> 
+                            <button value={member.key} onClick={deleteOnClick}>clear</button>
+                        </div>
                     )
                 }
             )}

@@ -3,18 +3,35 @@ import {useState} from 'react'
 import {List} from './list'
 import {ToDoCreate} from './toDoCreate'
 function App() {
-  const [list, setList] = useState(["naber","canım"])
+  const [list, setList] = useState([
+    {
+    key:"1",
+    name:"naber"
+    },
+    {
+      key:"2",
+      name:"canım"
+    }
+])
 
-  const onHandleClick = ({target})=>{
+  const onHandleClick = (target)=>{
     setList((prev)=>{
       console.log(target)
-      return[...prev,target.value]
+      return[...prev,target]
     })
+  }
+  const deleteOnClick = ({target}) =>{
+    setList((prev) =>(
+      prev.filter(
+        e => e.key !== target.value
+      )
+    ))
+    console.log(list)
   }
   return (
     <div className="App">
       <ToDoCreate onHandleClick={onHandleClick}></ToDoCreate>
-      <List list={list}></List>
+      <List list={list} deleteOnClick={deleteOnClick}></List>
     </div>
   );
 }

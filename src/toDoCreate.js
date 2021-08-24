@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 
-export function ToDoCreate(onHandleClick){
+export function ToDoCreate({onHandleClick}){
 
     const [logic, setLogic] = useState(false)
-    const [item, setİtem] = useState()
+    const [item, setİtem] = useState({})
    
     const changing = ({target})=>{
         setLogic(()=>{
@@ -12,16 +12,18 @@ export function ToDoCreate(onHandleClick){
             }
         })
         setİtem(()=>(
-            target.value
+            {
+                key:target.value + (new Date()).getMilliseconds().toString(),
+                name:target.value,}
         ))
-
+        console.log(item)        
     }
    
     return(
         <div>
             <input onChange={changing}></input>
         {logic? 
-        (<button value = {item} onClick={onHandleClick.onHandleClick} >Create</button>):null}
+        (<button value = {item.name} key={item.key} onClick={onHandleClick} >Create</button>):null}
         </div>
     )
 }
