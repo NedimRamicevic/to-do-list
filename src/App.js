@@ -13,26 +13,33 @@ function App() {
       name:"canım"
     }
 ])
+  const [item, setİtem] = useState({})
 
-  const onHandleClick = ({target})=>{
-    setList((prev)=>{
-      return[...prev,{
-        key:target.key,
-        name: target.value}]
-    })
-    console.log(target)
+  const onKeyUp = (e) =>{
+    setİtem(
+      {
+        key:e.target.value + (new Date()).getMilliseconds().toString(),
+        name:e.target.value
+      }
+    )
   }
-  const deleteOnClick = ({target}) =>{
+  const onHandleClick = ()=>{
+
+    setList((prev)=>{
+      return[...prev,
+        item]
+    })
+  }
+  const deleteOnClick = (id) =>{
     setList((prev) =>(
       prev.filter(
-        e => e.key !== target.value
+        e => e.key !== id
       )
     ))
-    console.log(list)
   }
   return (
     <div className="App">
-      <ToDoCreate onHandleClick={onHandleClick}></ToDoCreate>
+      <ToDoCreate onHandleClick={onHandleClick} onKeyUp ={onKeyUp}></ToDoCreate>
       <List list={list} deleteOnClick={deleteOnClick}></List>
     </div>
   );

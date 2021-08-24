@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-export function ToDoCreate({onHandleClick}){
+export function ToDoCreate({onHandleClick, onKeyUp}){
 
     const [logic, setLogic] = useState(false)
     const [name, setName] = useState()
@@ -17,7 +17,7 @@ export function ToDoCreate({onHandleClick}){
    
     return(
         <div>
-            <input onChange={changing} onKeyUp={}></input>
+            <input onChange={changing} onKeyUp={onKeyUp}></input>
         {logic? 
         (<button value = {name} onClick={onHandleClick} >Create</button>):null}
         </div>
