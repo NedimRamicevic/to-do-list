@@ -27,7 +27,7 @@ export function ToDoCreate({onHandleClick, onKeyUp}){
    
     return(
         <div>      
-            <input onKeyDownCapture={changing}></input>
+            <input onKeyUp={changing} ></input>
         {/* {logic? 
         (<button value = {name.id} onClick={()=>onHandleClick(name)} >Create</button>):null} */}
         </div>
