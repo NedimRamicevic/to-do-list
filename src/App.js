@@ -23,11 +23,11 @@ function App() {
       }
     )
   }
-  const onHandleClick = ()=>{
-
+  const onHandleClick = (newMember)=>{
+    console.log(newMember)
     setList((prev)=>{
       return[...prev,
-        item]
+        newMember]
     })
   }
   const deleteOnClick = (id) =>{

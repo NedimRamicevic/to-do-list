@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 export function ToDoCreate({onHandleClick, onKeyUp}){
 
     const [logic, setLogic] = useState(false)
-    const [name, setName] = useState()
+    const [name, setName] = useState({})
    
     const changing = ({target})=>{
         setLogic(()=>{
@@ -11,7 +11,9 @@ export function ToDoCreate({onHandleClick, onKeyUp}){
                 return(true)
             }
         })
-        setName(target.value)
+        setName({
+            name:target.value,
+            key:target.value + (new Date()).getMilliseconds().toString()})
 
     }
    
@@ -19,7 +21,7 @@ export function ToDoCreate({onHandleClick, onKeyUp}){
         <div>
             <input onChange={changing} onKeyUp={onKeyUp}></input>
         {logic? 
-        (<button value = {name} onClick={onHandleClick} >Create</button>):null}
+        (<button value = {name.id} onClick={()=>onHandleClick(name)} >Create</button>):null}
         </div>
     )
 }
