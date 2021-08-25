@@ -39,6 +39,18 @@ function App() {
       return [...tempList]
     })
   } 
+  const onInputChange = ({target}) =>{
+    const tempList = list
+    for (const member in list) {
+        if (Object.hasOwnProperty.call(list, member)) {
+            const element = list[member];
+            if (element.key === target.key) {
+                element.name = target.value
+            }
+        }
+    }
+    setList([...tempList])
+}
   const onHandleClick = (newMember)=>{
     console.log(newMember)
     setList((prev)=>{
@@ -56,7 +68,7 @@ function App() {
   return (
     <div className="App">
       <ToDoCreate onHandleClick={onHandleClick} ></ToDoCreate>
-      <List list={list} deleteOnClick={deleteOnClick} onCheck={onCheck}></List>
+      <List list={list} deleteOnClick={deleteOnClick} onCheck={onCheck} onInputChange={onInputChange}></List>
     </div>
   );
 }

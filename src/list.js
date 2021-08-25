@@ -1,9 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
-    export function List({list,deleteOnClick,onCheck}){
-        useEffect(() => {
-            console.log(list)
-        }, [])
+    export function List({list,deleteOnClick,onCheck,onInputChange}){
 
     return(
         <div className="list">
@@ -13,7 +10,7 @@ import React, {useEffect} from 'react';
                     return(
                         <div className="item" key={member.key}>
                             <button className="btnOk" value={member.key} onClick={()=> onCheck(member.key)} >✓</button>
-                            <input style={member.checked ? ({textDecoration:"line-through"}):null} value={member.name} ></input>                            
+                            <input type="text" style={member.checked ? ({textDecoration:"line-through"}):null} defaultValue={member.name} key={member.key} onChange={onInputChange}></input>                            
                             <button className="btnClear" value={member.key} onClick={() => deleteOnClick(member.key)}>x</button>
                         </div>
                     )
