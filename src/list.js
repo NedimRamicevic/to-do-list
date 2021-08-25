@@ -12,8 +12,9 @@ import React, {useEffect} from 'react';
                 (member) => {
                     return(
                         <div className="item" key={member.key}>
+                            <button className="btnOk">ok</button>
                             <input value={member.name}></input>                            
-                            <button value={member.key} onClick={() => deleteOnClick(member.key)}>clear</button>
+                            <button className="btnClear" value={member.key} onClick={() => deleteOnClick(member.key)}>clear</button>
                         </div>
                     )
                 }
