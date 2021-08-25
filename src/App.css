@@ -18,18 +18,18 @@ body {
 }
 
 button {
-	margin-left: 10px;
-	padding: 0;
-	border: 1;
-	background: none;
-	font-size: 100%;
-	vertical-align: baseline;
-	font-family: inherit;
-	font-weight: inherit;
+	margin-right: 5px;
+  height: 20px;
+  width: 25px;
+  background-color:white;
+  border-radius: 50%;
+
+}
+.btnOk{
+	color:green;
+}
+.btnClear{
 	color: red;
-	-webkit-appearance: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 body {

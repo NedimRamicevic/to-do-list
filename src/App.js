@@ -26,7 +26,18 @@ function App() {
   //   )
   // }
   const onCheck = (id) =>{
-    
+    const tempList = list
+    for (const member in tempList) {
+      if (Object.hasOwnProperty.call(tempList, member)) {
+        const element = tempList[member];
+        if (element.key === id) {
+          element.checked = !element.checked
+        }
+      }
+    }
+    setList(()=>{
+      return [...tempList]
+    })
   } 
   const onHandleClick = (newMember)=>{
     console.log(newMember)
@@ -45,7 +56,7 @@ function App() {
   return (
     <div className="App">
       <ToDoCreate onHandleClick={onHandleClick} ></ToDoCreate>
-      <List list={list} deleteOnClick={deleteOnClick}></List>
+      <List list={list} deleteOnClick={deleteOnClick} onCheck={onCheck}></List>
     </div>
   );
 }

@@ -13,7 +13,10 @@ export function ToDoCreate({onHandleClick, onKeyUp}){
         // })
         setName({
             name:e.target.value,
-            key:e.target.value + (new Date()).getMilliseconds().toString()})
+            key:e.target.value + (new Date()).getMilliseconds().toString(),
+            checked:false
+        })
+            
 
         if(e.keyCode === 13){
             onHandleClick(name)
