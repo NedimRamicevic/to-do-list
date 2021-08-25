@@ -13,16 +13,16 @@ function App() {
       name:"canım"
     }
 ])
-  const [item, setİtem] = useState({})
+  // const [item, setİtem] = useState({})
 
-  const onKeyUp = (e) =>{
-    setİtem(
-      {
-        key:e.target.value + (new Date()).getMilliseconds().toString(),
-        name:e.target.value
-      }
-    )
-  }
+  // const onKeyUp = (e) =>{
+  //   setİtem(
+  //     {
+  //       key:e.target.value + (new Date()).getMilliseconds().toString(),
+  //       name:e.target.value
+  //     }
+  //   )
+  // }
   const onHandleClick = (newMember)=>{
     console.log(newMember)
     setList((prev)=>{
@@ -39,7 +39,7 @@ function App() {
   }
   return (
     <div className="App">
-      <ToDoCreate onHandleClick={onHandleClick} onKeyUp ={onKeyUp}></ToDoCreate>
+      <ToDoCreate onHandleClick={onHandleClick} ></ToDoCreate>
       <List list={list} deleteOnClick={deleteOnClick}></List>
     </div>
   );

@@ -2,26 +2,31 @@ import React,{useState} from 'react'
 
 export function ToDoCreate({onHandleClick, onKeyUp}){
 
-    const [logic, setLogic] = useState(false)
+    // const [logic, setLogic] = useState(false)
     const [name, setName] = useState({})
    
-    const changing = ({target})=>{
-        setLogic(()=>{
-            if(target.value !==""){
-                return(true)
-            }
-        })
+    const changing = (e)=>{
+        // setLogic(()=>{
+        //     if(e.target.value !==""){
+        //         return(true)
+        //     }
+        // })
         setName({
-            name:target.value,
-            key:target.value + (new Date()).getMilliseconds().toString()})
+            name:e.target.value,
+            key:e.target.value + (new Date()).getMilliseconds().toString()})
+
+        if(e.keyCode === 13){
+            onHandleClick(name)
+        }
+
 
     }
    
     return(
-        <div>
-            <input onChange={changing} onKeyUp={onKeyUp}></input>
-        {logic? 
-        (<button value = {name.id} onClick={()=>onHandleClick(name)} >Create</button>):null}
+        <div>      
+            <input onKeyDownCapture={changing}></input>
+        {/* {logic? 
+        (<button value = {name.id} onClick={()=>onHandleClick(name)} >Create</button>):null} */}
         </div>
     )
 }
