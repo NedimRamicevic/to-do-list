@@ -6,11 +6,13 @@ function App() {
   const [list, setList] = useState([
     {
     key:"1",
-    name:"naber"
+    name:"naber",
+    checked:true
     },
     {
       key:"2",
-      name:"canım"
+      name:"canım",
+      checked:false
     }
 ])
   // const [item, setİtem] = useState({})
@@ -23,6 +25,9 @@ function App() {
   //     }
   //   )
   // }
+  const onCheck = (id) =>{
+    
+  } 
   const onHandleClick = (newMember)=>{
     console.log(newMember)
     setList((prev)=>{

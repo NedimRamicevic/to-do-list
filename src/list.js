@@ -12,9 +12,9 @@ import React, {useEffect} from 'react';
                 (member) => {
                     return(
                         <div className="item" key={member.key}>
-                            <button className="btnOk">ok</button>
-                            <input value={member.name}></input>                            
-                            <button className="btnClear" value={member.key} onClick={() => deleteOnClick(member.key)}>clear</button>
+                            <button className="btnOk" value={member.key} onClick={} >✓</button>
+                            <input style={member.checked ? ({textDecoration:"line-through"}):null} value={member.name}></input>                            
+                            <button className="btnClear" value={member.key} onClick={() => deleteOnClick(member.key)}>x</button>
                         </div>
                     )
                 }
