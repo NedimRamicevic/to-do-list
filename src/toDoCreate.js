@@ -20,16 +20,18 @@ export function ToDoCreate({onHandleClick, onKeyUp}){
 
         if(e.keyCode === 13){
             onHandleClick(name)
+            e.target.value = ""
         }
 
 
     }
    
     return(
-        <div>      
+        <div className="toDoCrate">      
             <input onKeyUp={changing} ></input>
         {/* {logic? 
         (<button value = {name.id} onClick={()=>onHandleClick(name)} >Create</button>):null} */}
         </div>
+        
     )
 }
