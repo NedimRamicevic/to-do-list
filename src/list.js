@@ -1,11 +1,23 @@
 import React from 'react';
 
-    export function List({list,deleteOnClick,onCheck,onInputChange}){
+    export function List({list,deleteOnClick,onCheck,onInputChange,listOption}){
+        var opt = null
+        if (listOption === "checked") {
+             opt = false
+        }
+        else if(listOption === "unchecked"){
+            opt = true
+        }
+        else{
+            opt = null
+        }
 
     return(
         <div className="list">
             <ul>
-            {list.map(
+            {list.filter(
+                x => x.checked !== opt
+            ).map(
                 (member) => {
                     return(
                         <div className="item" key={member.key}>

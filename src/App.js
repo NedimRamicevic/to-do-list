@@ -2,6 +2,7 @@ import './App.css';
 import {useState} from 'react'
 import {List} from './list'
 import {ToDoCreate} from './toDoCreate'
+import {ShowFiltered} from './showFiltered'
 function App() {
   const [list, setList] = useState([
     {
@@ -15,6 +16,12 @@ function App() {
       checked:false
     }
 ])
+const [option, setOption] = useState("checked")
+
+const getOption = (opt)=>{
+  setOption(opt)
+}
+
   // const [item, setİtem] = useState({})
 
   // const onKeyUp = (e) =>{
@@ -68,7 +75,8 @@ function App() {
   return (
     <div className="App">
       <ToDoCreate onHandleClick={onHandleClick} ></ToDoCreate>
-      <List list={list} deleteOnClick={deleteOnClick} onCheck={onCheck} onInputChange={onInputChange}></List>
+      <List list={list} listOption ={option} deleteOnClick={deleteOnClick} onCheck={onCheck} onInputChange={onInputChange}></List>
+      <ShowFiltered getOption={getOption} />
     </div>
   );
 }
